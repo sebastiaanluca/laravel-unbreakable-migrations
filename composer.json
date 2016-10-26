@@ -1,5 +1,5 @@
 {
-    "name": "sebastiaanluca/migrations",
+    "name": "sebastiaanluca/laravel-unbreakable-migrations",
     "type": "library",
     "description": "Prevent your Laravel database migrations from failing by using transactional queries.",
     "keywords": [
