@@ -11,38 +11,35 @@ use Illuminate\Foundation\Application;
 abstract class Migration extends IlluminateMigration
 {
     /**
-     * Database manager
+     * The database manager.
      *
      * @var \Illuminate\Database\DatabaseManager
      */
     protected $manager;
-    
+
     /**
-     * Database connection
+     * The database connection.
      *
      * @var \Illuminate\Database\Connection
      */
     protected $database;
-    
+
     /**
-     * Database schema manager
+     * The database schema manager.
      *
      * @var \Illuminate\Database\Schema\Builder
      */
     protected $schema;
-    
+
     /**
-     * List of all tables related to this migration
+     * List of all tables related to this migration.
      *
-     * You can add them here and use the dropAll() method in down().
-     *
-     * Why? Because it's easier and safer, because dropAll() will check
-     * if the table exists before trying to delete it.
+     * Enables you to use the dropAll() method when reversing migrations.
      *
      * @var array
      */
     protected $tables = [];
-    
+
     /**
      * The Laravel migrator up() method.
      */
@@ -51,7 +48,7 @@ abstract class Migration extends IlluminateMigration
         $this->connect();
         $this->migrateUp();
     }
-    
+
     /**
      * The Laravel migrator down() method.
      */
@@ -60,7 +57,7 @@ abstract class Migration extends IlluminateMigration
         $this->connect();
         $this->migrateDown();
     }
-    
+
     /**
      * Check if this is a Laravel application
      */
@@ -68,7 +65,7 @@ abstract class Migration extends IlluminateMigration
     {
         return function_exists('app') && app() instanceof Application;
     }
-    
+
     /**
      * Check if a table exists.
      *
@@ -76,11 +73,11 @@ abstract class Migration extends IlluminateMigration
      *
      * @return mixed
      */
-    protected function tableExists($table)
+    protected function tableExists(string $table)
     {
         return $this->schema->hasTable($table);
     }
-    
+
     /**
      * Check the database connection and use of the Laravel framework.
      *
@@ -91,12 +88,12 @@ abstract class Migration extends IlluminateMigration
         if (! $this->isLaravel()) {
             throw new Exception('This migrator must be ran from inside a Laravel application.');
         }
-        
+
         $this->manager = app('db');
         $this->database = $this->manager->connection();
         $this->schema = $this->database->getSchemaBuilder();
     }
-    
+
     /**
      * Handle an exception.
      *
@@ -105,80 +102,76 @@ abstract class Migration extends IlluminateMigration
     protected function handleException($exception)
     {
         $previous = $exception->getPrevious();
-        
+
         if ($exception instanceof QueryException) {
             throw new $exception($exception->getMessage(), $exception->getBindings(), $previous);
         }
-        
+
         throw new $exception($exception->getMessage(), $previous);
     }
-    
+
     /**
      * Safely drop a column from a table.
      *
-     * @param $tableName
-     * @param $column
+     * @param string $tableName
+     * @param string $column
      */
-    protected function dropColumn($tableName, $column)
+    protected function dropColumn(string $tableName, string $column)
     {
         // Check for its existence before dropping
         if (! $this->schema->hasColumn($tableName, $column)) {
             return;
         }
-        
-        $this->schema->table($tableName, function(Blueprint $table) use ($column) {
+
+        $this->schema->table($tableName, function (Blueprint $table) use ($column) {
             $table->dropColumn($column);
         });
     }
-    
+
     /**
      * Safely drop a table.
      *
-     * @param string $tables
+     * @param array|string $tables
      * @param bool $ignoreKeyConstraints
      */
-    protected function drop($tables, $ignoreKeyConstraints = false)
+    protected function drop($tables, bool $ignoreKeyConstraints = false)
     {
         if ($ignoreKeyConstraints) {
             $this->database->statement('SET FOREIGN_KEY_CHECKS=0;');
         }
-        
+
         if (! is_array($tables)) {
             $tables = [$tables];
         }
-        
+
         foreach ($tables as $table) {
             if ($this->tableExists($table)) {
                 $this->schema->drop($table);
             }
         }
-        
+
         if ($ignoreKeyConstraints) {
             $this->database->statement('SET FOREIGN_KEY_CHECKS=1;');
         }
     }
-    
+
     /**
      * Safely drop all tables.
      *
      * @param bool $ignoreKeyConstraints
      */
-    protected function dropAllTables($ignoreKeyConstraints = false)
+    protected function dropAllTables(bool $ignoreKeyConstraints = false)
     {
         $this->drop($this->tables, $ignoreKeyConstraints);
     }
-    
+
     /**
-     * The abstracted up() method.
-     *
-     * Do not use up(), use this one instead.
+     * Execute the migration.
      */
     abstract protected function migrateUp();
-    
+
     /**
-     * The abstracted down() method.
-     *
-     * Do not use down(), use this one instead.
+     * Reverse the migration.
      */
     abstract protected function migrateDown();
 }
