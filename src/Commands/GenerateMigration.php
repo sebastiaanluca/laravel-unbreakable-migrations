@@ -8,7 +8,6 @@ use SebastiaanLuca\Migrations\ExtendedMigrationCreator;
 
 class GenerateMigration extends MigrateMakeCommand
 {
-    // TODO: add module support
     /**
      * The name and signature of the console command.
      *
@@ -18,7 +17,8 @@ class GenerateMigration extends MigrateMakeCommand
                             {name : The name of the migration.}
                             {--create= : The table to be created.}
                             {--table= : The table to migrate.}
-                            {--path= : The location where the migration file should be created.}';
+                            {--path= : The location where the migration file should be created.}
+                            {--module= : The table to migrate.}';
 
     /**
      * The console command description.
@@ -36,5 +36,17 @@ class GenerateMigration extends MigrateMakeCommand
     public function __construct(ExtendedMigrationCreator $creator, Composer $composer)
     {
         parent::__construct($creator, $composer);
+    }
+
+    /**
+     * Execute the console command.
+     */
+    public function fire()
+    {
+        if ($module = $this->option('module')) {
+            $this->input->setOption('path', 'modules/' . $module . '/database/migrations');
+        }
+
+        parent::fire();
     }
 }

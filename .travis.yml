@@ -11,26 +11,27 @@ cache:
 
 env:
   matrix:
-    - LARAVEL_VERSION="5.1.*" COMPOSER_FLAGS="--prefer-lowest"
-    - LARAVEL_VERSION="5.1.*"
-    - LARAVEL_VERSION="5.2.*" COMPOSER_FLAGS="--prefer-lowest"
-    - LARAVEL_VERSION="5.2.*"
-    - LARAVEL_VERSION="5.3.*" COMPOSER_FLAGS="--prefer-lowest"
-    - LARAVEL_VERSION="5.3.*"
-    - LARAVEL_VERSION="5.4.*" COMPOSER_FLAGS="--prefer-lowest"
-    - LARAVEL_VERSION="5.4.*"
-    - LARAVEL_VERSION="dev-master" COMPOSER_FLAGS="--prefer-lowest"
-    - LARAVEL_VERSION="dev-master"
+    - ILLUMINATE_VERSION="5.1.*" COMPOSER_FLAGS="--prefer-lowest"
+    - ILLUMINATE_VERSION="5.1.*"
+    - ILLUMINATE_VERSION="5.2.*" COMPOSER_FLAGS="--prefer-lowest"
+    - ILLUMINATE_VERSION="5.2.*"
+    - ILLUMINATE_VERSION="5.3.*" COMPOSER_FLAGS="--prefer-lowest"
+    - ILLUMINATE_VERSION="5.3.*"
+    - ILLUMINATE_VERSION="5.4.*" COMPOSER_FLAGS="--prefer-lowest"
+    - ILLUMINATE_VERSION="5.4.*"
+    - ILLUMINATE_VERSION="dev-master" COMPOSER_FLAGS="--prefer-lowest"
+    - ILLUMINATE_VERSION="dev-master"
 
 matrix:
   allow_failures:
-    - env: LARAVEL_VERSION="dev-master" COMPOSER_FLAGS="--prefer-lowest"
-    - env: LARAVEL_VERSION="dev-master"
+    - env: ILLUMINATE_VERSION="dev-master" COMPOSER_FLAGS="--prefer-lowest"
+    - env: ILLUMINATE_VERSION="dev-master"
   fast_finish: true
 
 before_install:
   - travis_retry composer self-update
-  - composer require laravel/framework=${LARAVEL_VERSION} --no-update
+  - composer require illuminate/database=${ILLUMINATE_VERSION} --no-update
+  - composer require illuminate/support=${ILLUMINATE_VERSION} --no-update
 
 install:
   - travis_retry composer update ${COMPOSER_FLAGS} --no-interaction --prefer-dist
