@@ -13,7 +13,7 @@ Prevent your Laravel database migrations from failing by wrapping them in transa
 ## Requirements
 
 - PHP 7 or higher
-- Laravel 5.3 or higher
+- Laravel 5.4 or higher
 
 ## Install
 
