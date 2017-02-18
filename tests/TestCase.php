@@ -3,7 +3,7 @@
 namespace SebastiaanLuca\Migrations\Tests;
 
 use Orchestra\Testbench\TestCase as BaseTestCase;
-use SebastiaanLuca\Migrations\Providers\UnbreakableMigrationServiceProvider;
+use SebastiaanLuca\Migrations\Providers\UnbreakableMigrationsServiceProvider;
 
 class TestCase extends BaseTestCase
 {
@@ -23,7 +23,7 @@ class TestCase extends BaseTestCase
     protected function getPackageProviders($app)
     {
         return [
-            UnbreakableMigrationServiceProvider::class,
+            UnbreakableMigrationsServiceProvider::class,
         ];
     }
 

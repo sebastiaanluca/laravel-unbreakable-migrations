@@ -21,7 +21,7 @@ composer require sebastiaanluca/laravel-unbreakable-migrations
 And add the service provider to your providers array in `config/app.php` if you want to make use of the generate commands (completely optional):
 
 ``` php
-SebastiaanLuca\Migrations\Providers\UnbreakableMigrationServiceProvider::class,
+SebastiaanLuca\Migrations\Providers\UnbreakableMigrationsServiceProvider::class,
 ```
 
 ## Usage

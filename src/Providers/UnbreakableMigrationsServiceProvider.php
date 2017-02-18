@@ -5,7 +5,7 @@ namespace SebastiaanLuca\Migrations\Providers;
 use Illuminate\Support\ServiceProvider;
 use SebastiaanLuca\Migrations\Commands\GenerateMigration;
 
-class UnbreakableMigrationServiceProvider extends ServiceProvider
+class UnbreakableMigrationsServiceProvider extends ServiceProvider
 {
     /**
      * Indicates if loading of the provider is deferred.
@@ -24,6 +24,11 @@ class UnbreakableMigrationServiceProvider extends ServiceProvider
         ]);
     }
 
+    /**
+     * Get the services provided by the provider.
+     *
+     * @return array
+     */
     public function provides()
     {
         return [
