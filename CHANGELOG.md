@@ -4,19 +4,12 @@ All Notable changes to `laravel-unbreakable-migrations` will be documented in th
 
 Updates should follow the [Keep a CHANGELOG](http://keepachangelog.com/) principles.
 
-## NEXT - YYYY-MM-DD
+## Unreleased
 
 ### Added
-- Nothing
 
-### Deprecated
-- Nothing
-
-### Fixed
-- Nothing
+- Added generate migration command with module support
 
 ### Removed
-- Nothing
 
-### Security
-- Nothing
+- Removed support for Laravel 5.1 and 5.2

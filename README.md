@@ -10,6 +10,11 @@
 
 Prevent your Laravel database migrations from failing by wrapping them in transactions.
 
+## Requirements
+
+- PHP 7 or higher
+- Laravel 5.3 or higher
+
 ## Install
 
 Via Composer

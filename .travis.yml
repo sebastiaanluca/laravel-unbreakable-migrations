@@ -11,10 +11,6 @@ cache:
 
 env:
   matrix:
-    - ILLUMINATE_VERSION="5.1.*" COMPOSER_FLAGS="--prefer-lowest"
-    - ILLUMINATE_VERSION="5.1.*"
-    - ILLUMINATE_VERSION="5.2.*" COMPOSER_FLAGS="--prefer-lowest"
-    - ILLUMINATE_VERSION="5.2.*"
     - ILLUMINATE_VERSION="5.3.*" COMPOSER_FLAGS="--prefer-lowest"
     - ILLUMINATE_VERSION="5.3.*"
     - ILLUMINATE_VERSION="5.4.*" COMPOSER_FLAGS="--prefer-lowest"
