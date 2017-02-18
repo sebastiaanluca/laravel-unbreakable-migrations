@@ -1,25 +1,40 @@
-# laravel-unbreakable-migrations
+# Laravel Unbreakable Migrations
 
 [![Latest Version on Packagist][ico-version]][link-packagist]
 [![Software License][ico-license]](LICENSE.md)
 [![Build Status][ico-travis]][link-travis]
-[![Coverage Status][ico-scrutinizer]][link-scrutinizer]
-[![Quality Score][ico-code-quality]][link-code-quality]
 [![Total Downloads][ico-downloads]][link-downloads]
 
-Prevent your Laravel database migrations from failing by using transactional queries.
+[![Follow me on Twitter](https://img.shields.io/twitter/follow/sebastiaanluca.svg?style=social)](https://twitter.com/sebastiaanluca)
+[![Share this package on Twitter](https://img.shields.io/twitter/url/http/shields.io.svg?style=social)](https://twitter.com/home?status=https%3A//github.com/sebastiaanluca/php-stub-generator%20via%20%40sebastiaanluca)
+
+Prevent your Laravel database migrations from failing by wrapping them in transactions.
 
 ## Install
 
 Via Composer
 
 ``` bash
-$ composer require sebastiaanluca/laravel-unbreakable-migrations
+composer require sebastiaanluca/laravel-unbreakable-migrations
+```
+
+And add the service provider to your providers array in `config/app.php` if you want to make use of the generate commands (completely optional):
+
+``` php
+SebastiaanLuca\Migrations\Providers\UnbreakableMigrationServiceProvider::class,
 ```
 
 ## Usage
 
-TODO
+### Generating migrations
+
+### Migration
+
+- `drop`
+- `dropColumn`
+- …
+
+### Transactional migration
 
 ## Change log
 
@@ -28,7 +43,8 @@ Please see [CHANGELOG](CHANGELOG.md) for more information what has changed recen
 ## Testing
 
 ``` bash
-$ composer test
+composer install
+composer test
 ```
 
 ## Contributing
@@ -37,12 +53,16 @@ Please see [CONTRIBUTING](CONTRIBUTING.md) and [CONDUCT](CONDUCT.md) for details
 
 ## Security
 
-If you discover any security related issues, please email hello@sebastiaanluca.com instead of using the issue tracker.
+If you discover any security related issues, please email security@sebastiaanluca.com instead of using the issue tracker.
 
 ## Credits
 
 - [Sebastiaan Luca][link-author]
 - [All Contributors][link-contributors]
+
+## About
+
+My name is Sebastiaan and I'm a freelance back-end developer specializing in building high-end, custom Laravel applications. Check out my [portfolio][author-portfolio] for more information and my other [packages](https://github.com/sebastiaanluca?tab=repositories) to kick-start your next project. Have a project that could use some guidance? Send me an e-mail at [hello@sebastiaanluca.com][author-email]!
 
 ## License
 
@@ -51,14 +71,12 @@ The MIT License (MIT). Please see [License File](LICENSE.md) for more informatio
 [ico-version]: https://img.shields.io/packagist/v/sebastiaanluca/laravel-unbreakable-migrations.svg?style=flat-square
 [ico-license]: https://img.shields.io/badge/license-MIT-brightgreen.svg?style=flat-square
 [ico-travis]: https://img.shields.io/travis/sebastiaanluca/laravel-unbreakable-migrations/master.svg?style=flat-square
-[ico-scrutinizer]: https://img.shields.io/scrutinizer/coverage/g/sebastiaanluca/laravel-unbreakable-migrations.svg?style=flat-square
-[ico-code-quality]: https://img.shields.io/scrutinizer/g/sebastiaanluca/laravel-unbreakable-migrations.svg?style=flat-square
 [ico-downloads]: https://img.shields.io/packagist/dt/sebastiaanluca/laravel-unbreakable-migrations.svg?style=flat-square
 
 [link-packagist]: https://packagist.org/packages/sebastiaanluca/laravel-unbreakable-migrations
 [link-travis]: https://travis-ci.org/sebastiaanluca/laravel-unbreakable-migrations
-[link-scrutinizer]: https://scrutinizer-ci.com/g/sebastiaanluca/laravel-unbreakable-migrations/code-structure
-[link-code-quality]: https://scrutinizer-ci.com/g/sebastiaanluca/laravel-unbreakable-migrations
 [link-downloads]: https://packagist.org/packages/sebastiaanluca/laravel-unbreakable-migrations
-[link-author]: https://github.com/sebastiaanluca
 [link-contributors]: ../../contributors
+[link-author]: https://github.com/sebastiaanluca
+[author-portfolio]: http://www.sebastiaanluca.com
+[author-email]: mailto:hello@sebastiaanluca.com
