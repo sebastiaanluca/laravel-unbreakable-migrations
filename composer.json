@@ -7,8 +7,7 @@
         "database",
         "transactional",
         "transactions",
-        "migrations",
-        "Sebastiaan Luca"
+        "migrations"
     ],
     "homepage": "https://www.github.com/sebastiaanluca/laravel-unbreakable-migrations",
     "license": "MIT",
@@ -21,12 +20,13 @@
         }
     ],
     "require": {
-        "laravel/framework": "5.1.*|5.2.*|5.3.*|5.4.*",
-        "php": "^7.0"
+        "laravel/framework": "^5.1",
+        "php": "^7"
     },
     "require-dev": {
-        "phpunit/phpunit": "~4.0|^5.7.6",
-        "squizlabs/php_codesniffer": "^2.3"
+        "orchestra/testbench": "^3.4",
+        "phpunit/phpunit": "^6",
+        "raveren/kint": "^1"
     },
     "autoload": {
         "psr-4": {
@@ -35,13 +35,11 @@
     },
     "autoload-dev": {
         "psr-4": {
-            "SebastiaanLuca\\Migrations\\": "tests"
+            "SebastiaanLuca\\Migrations\\Tests\\": "tests"
         }
     },
     "scripts": {
-        "test": "phpunit",
-        "check-style": "phpcs -p --standard=PSR2 --runtime-set ignore_errors_on_exit 1 --runtime-set ignore_warnings_on_exit 1 src tests",
-        "fix-style": "phpcbf -p --standard=PSR2 --runtime-set ignore_errors_on_exit 1 --runtime-set ignore_warnings_on_exit 1 src tests"
+        "test": "phpunit"
     },
     "extra": {
         "branch-alias": {
