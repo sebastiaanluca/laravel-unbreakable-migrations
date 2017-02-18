@@ -1,0 +1,28 @@
+<?php
+
+use Illuminate\Database\Schema\Blueprint;
+use SebastiaanLuca\Migrations\TransactionalMigration as Migration;
+
+class DummyClass extends Migration
+{
+    /**
+     * Run the migration.
+     */
+    public function migrateUp()
+    {
+        $this->schema->table('DummyTable', function (Blueprint $table) {
+            //
+        });
+    }
+
+    /**
+     * Reverse the migration.
+     */
+    public function migrateDown()
+    {
+        $this->schema->table('DummyTable', function (Blueprint $table) {
+            //
+        });
+    }
+}
+
