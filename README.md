@@ -17,13 +17,13 @@ Prevent your Laravel database migrations from failing by wrapping them in transa
 
 ## Install
 
-Via Composer
+Via Composer:
 
 ``` bash
 composer require sebastiaanluca/laravel-unbreakable-migrations
 ```
 
-And add the service provider to your providers array in `config/app.php` if you want to make use of the generate commands (completely optional):
+Then (__optionally__) add the service provider to your providers array in `config/app.php` if you want to make use of the generate commands:
 
 ``` php
 SebastiaanLuca\Migrations\Providers\UnbreakableMigrationsServiceProvider::class,
@@ -35,8 +35,13 @@ SebastiaanLuca\Migrations\Providers\UnbreakableMigrationsServiceProvider::class,
 
 ### Migration
 
+- `migrateUp`
+- `migrateDown`
+- `$tables`
 - `drop`
+- `dropAllTables`
 - `dropColumn`
+- `tableExists`
 - …
 
 ### Transactional migration
