@@ -13,13 +13,11 @@ env:
   matrix:
     - ILLUMINATE_VERSION="5.4.*" ORCHESTRA_VERSION="^3.4.2" PHPUNIT_VERSION="6.*" COMPOSER_FLAGS="--prefer-lowest"
     - ILLUMINATE_VERSION="5.4.*" ORCHESTRA_VERSION="^3.4.2" PHPUNIT_VERSION="6.*" COMPOSER_FLAGS="--prefer-stable"
-    - ILLUMINATE_VERSION="dev-master" ORCHESTRA_VERSION="dev-master" PHPUNIT_VERSION="6.*" COMPOSER_FLAGS="--prefer-lowest"
     - ILLUMINATE_VERSION="dev-master" ORCHESTRA_VERSION="dev-master" PHPUNIT_VERSION="6.*"
 
 matrix:
   allow_failures:
     - php: nightly
-    - env: ILLUMINATE_VERSION="dev-master" ORCHESTRA_VERSION="dev-master" PHPUNIT_VERSION="6.*" COMPOSER_FLAGS="--prefer-lowest"
     - env: ILLUMINATE_VERSION="dev-master" ORCHESTRA_VERSION="dev-master" PHPUNIT_VERSION="6.*"
   fast_finish: true
 
