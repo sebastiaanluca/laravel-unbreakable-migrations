@@ -12,4 +12,4 @@ Updates should follow the [Keep a CHANGELOG](http://keepachangelog.com/) princip
 
 ### Removed
 
-- Removed support for Laravel 5.1 and 5.2
+- Removed support for Laravel 5.1, 5.2, and 5.3
