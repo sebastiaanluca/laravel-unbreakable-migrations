@@ -3,11 +3,12 @@
     "type": "library",
     "description": "Prevent your Laravel database migrations from failing irreversibly by using transactional queries.",
     "keywords": [
-        "Laravel",
+        "laravel",
         "database",
         "transactional",
         "transactions",
-        "migrations"
+        "migrations",
+        "unbreakable"
     ],
     "homepage": "https://www.github.com/sebastiaanluca/laravel-unbreakable-migrations",
     "license": "MIT",
@@ -20,14 +21,14 @@
         }
     ],
     "require": {
+        "php": "^7.1",
         "illuminate/database": "^5.4",
-        "illuminate/support": "^5.4",
-        "php": "^7"
+        "illuminate/support": "^5.4"
     },
     "require-dev": {
+        "mockery/mockery": "^0.9.7",
         "orchestra/testbench": "^3.4.2",
-        "phpunit/phpunit": "^6",
-        "raveren/kint": "^1"
+        "phpunit/phpunit": "^6.2"
     },
     "autoload": {
         "psr-4": {
@@ -40,15 +41,16 @@
         }
     },
     "scripts": {
-        "test": "phpunit"
-    },
-    "extra": {
-        "branch-alias": {
-            "dev-develop": "1.0-dev"
-        }
+        "test": "vendor/bin/phpunit"
     },
     "config": {
         "sort-packages": true
     },
-    "minimum-stability": "dev"
+    "extra": {
+        "laravel": {
+            "providers": [
+                "SebastiaanLuca\\Migrations\\Providers\\UnbreakableMigrationsServiceProvider"
+            ]
+        }
+    }
 }
