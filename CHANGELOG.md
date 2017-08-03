@@ -12,10 +12,6 @@ Updates should follow the [Keep a CHANGELOG](http://keepachangelog.com/) princip
 - Added Laravel 5.5 support
 - Added Laravel 5.5 auto-discovery
 
-### Changed
-
-- Changed minimum PHP requirement to 7.1
-
 ### Removed
 
 - Removed support for Laravel 5.1, 5.2, and 5.3
