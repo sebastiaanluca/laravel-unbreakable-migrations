@@ -9,6 +9,12 @@ Updates should follow the [Keep a CHANGELOG](http://keepachangelog.com/) princip
 ### Added
 
 - Added generate migration command with module support
+- Added Laravel 5.5 support
+- Added Laravel 5.5 auto-discovery
+
+### Changed
+
+- Changed minimum PHP requirement to 7.1
 
 ### Removed
 
