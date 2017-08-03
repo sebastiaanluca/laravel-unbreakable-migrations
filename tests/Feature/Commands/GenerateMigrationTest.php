@@ -1,6 +1,6 @@
 <?php
 
-namespace SebastiaanLuca\Migrations\Tests\Commands;
+namespace SebastiaanLuca\Migrations\Tests\Feature\Commands;
 
 use SebastiaanLuca\Migrations\Tests\TestCase;
 
