@@ -16,8 +16,10 @@ class UnbreakableMigrationsServiceProvider extends ServiceProvider
 
     /**
      * Register the application services.
+     *
+     * @return void
      */
-    public function register()
+    public function register() : void
     {
         $this->commands([
             GenerateMigration::class,
@@ -29,7 +31,7 @@ class UnbreakableMigrationsServiceProvider extends ServiceProvider
      *
      * @return array
      */
-    public function provides()
+    public function provides() : array
     {
         return [
             GenerateMigration::class,

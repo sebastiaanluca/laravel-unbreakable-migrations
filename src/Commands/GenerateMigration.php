@@ -40,8 +40,10 @@ class GenerateMigration extends MigrateMakeCommand
 
     /**
      * Execute the console command.
+     *
+     * @return void
      */
-    public function fire()
+    public function fire() : void
     {
         if ($module = $this->option('module')) {
             $this->input->setOption('path', 'modules/' . $module . '/database/migrations');

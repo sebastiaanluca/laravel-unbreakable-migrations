@@ -9,8 +9,10 @@ class TestCase extends BaseTestCase
 {
     /**
      * @param $app
+     *
+     * @return void
      */
-    protected function getEnvironmentSetUp($app)
+    protected function getEnvironmentSetUp($app) : void
     {
         $app->setBasePath(__DIR__ . '/files');
     }
@@ -20,7 +22,7 @@ class TestCase extends BaseTestCase
      *
      * @return array
      */
-    protected function getPackageProviders($app)
+    protected function getPackageProviders($app) : array
     {
         return [
             UnbreakableMigrationsServiceProvider::class,
@@ -29,8 +31,10 @@ class TestCase extends BaseTestCase
 
     /**
      * Clean up the testing environment before the next test.
+     *
+     * @return void
      */
-    protected function tearDown()
+    protected function tearDown() : void
     {
         parent::tearDown();
 

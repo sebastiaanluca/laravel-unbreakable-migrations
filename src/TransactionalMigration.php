@@ -8,8 +8,10 @@ abstract class TransactionalMigration extends Migration
 {
     /**
      * The Laravel migrator up() method.
+     *
+     * @return void
      */
-    public function up()
+    public function up() : void
     {
         $this->connect();
         $this->executeInTransaction('migrateUp');
@@ -17,8 +19,10 @@ abstract class TransactionalMigration extends Migration
 
     /**
      * The Laravel migrator down() method.
+     *
+     * @return void
      */
-    public function down()
+    public function down() : void
     {
         $this->connect();
         $this->executeInTransaction('migrateDown');
@@ -28,8 +32,10 @@ abstract class TransactionalMigration extends Migration
      * Execute the migration command inside a transaction layer.
      *
      * @param string $method
+     *
+     * @return void
      */
-    protected function executeInTransaction(string $method)
+    protected function executeInTransaction(string $method) : void
     {
         try {
             $this->database->beginTransaction();
