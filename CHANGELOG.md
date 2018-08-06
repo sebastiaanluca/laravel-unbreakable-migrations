@@ -6,6 +6,8 @@ Updates should follow the [Keep a CHANGELOG](http://keepachangelog.com/) princip
 
 ## Unreleased
 
+## 0.2.0 (2018-08-06)
+
 ### Added
 
 - Added generate migration command with module support
