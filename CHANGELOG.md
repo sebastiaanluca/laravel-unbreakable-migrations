@@ -4,19 +4,17 @@ All Notable changes to `laravel-unbreakable-migrations` will be documented in th
 
 Updates should follow the [Keep a CHANGELOG](http://keepachangelog.com/) principles.
 
-## NEXT - YYYY-MM-DD
+## Unreleased
+
+## 0.2.0 (2018-08-06)
 
 ### Added
-- Nothing
 
-### Deprecated
-- Nothing
-
-### Fixed
-- Nothing
+- Added generate migration command with module support
+- Added Laravel 5.6 support
+- Added Laravel auto-discovery
 
 ### Removed
-- Nothing
 
-### Security
-- Nothing
+- Removed support for Laravel 5.5 and lower
+- Removed support for PHP 7.1 and lower

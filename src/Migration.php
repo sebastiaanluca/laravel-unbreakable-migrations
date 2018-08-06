@@ -42,8 +42,10 @@ abstract class Migration extends IlluminateMigration
 
     /**
      * The Laravel migrator up() method.
+     *
+     * @return void
      */
-    public function up()
+    public function up() : void
     {
         $this->connect();
         $this->migrateUp();
@@ -51,8 +53,10 @@ abstract class Migration extends IlluminateMigration
 
     /**
      * The Laravel migrator down() method.
+     *
+     * @return void
      */
-    public function down()
+    public function down() : void
     {
         $this->connect();
         $this->migrateDown();
@@ -60,8 +64,10 @@ abstract class Migration extends IlluminateMigration
 
     /**
      * Check if this is a Laravel application
+     *
+     * @return bool
      */
-    protected function isLaravel()
+    protected function isLaravel() : bool
     {
         return function_exists('app') && app() instanceof Application;
     }
@@ -81,9 +87,10 @@ abstract class Migration extends IlluminateMigration
     /**
      * Check the database connection and use of the Laravel framework.
      *
+     * @return void
      * @throws \Exception
      */
-    protected function connect()
+    protected function connect() : void
     {
         if (! $this->isLaravel()) {
             throw new Exception('This migrator must be ran from inside a Laravel application.');
@@ -98,8 +105,10 @@ abstract class Migration extends IlluminateMigration
      * Handle an exception.
      *
      * @param \Exception $exception
+     *
+     * @return void
      */
-    protected function handleException($exception)
+    protected function handleException($exception) : void
     {
         $previous = $exception->getPrevious();
 
@@ -115,8 +124,10 @@ abstract class Migration extends IlluminateMigration
      *
      * @param string $tableName
      * @param string $column
+     *
+     * @return void
      */
-    protected function dropColumn(string $tableName, string $column)
+    protected function dropColumn(string $tableName, string $column) : void
     {
         // Check for its existence before dropping
         if (! $this->schema->hasColumn($tableName, $column)) {
@@ -133,8 +144,10 @@ abstract class Migration extends IlluminateMigration
      *
      * @param array|string $tables
      * @param bool $ignoreKeyConstraints
+     *
+     * @return void
      */
-    protected function drop($tables, bool $ignoreKeyConstraints = false)
+    protected function drop($tables, bool $ignoreKeyConstraints = false) : void
     {
         if ($ignoreKeyConstraints) {
             $this->database->statement('SET FOREIGN_KEY_CHECKS=0;');
@@ -159,19 +172,25 @@ abstract class Migration extends IlluminateMigration
      * Safely drop all tables.
      *
      * @param bool $ignoreKeyConstraints
+     *
+     * @return void
      */
-    protected function dropAllTables(bool $ignoreKeyConstraints = false)
+    protected function dropAllTables(bool $ignoreKeyConstraints = false) : void
     {
         $this->drop($this->tables, $ignoreKeyConstraints);
     }
 
     /**
      * Execute the migration.
+     *
+     * @return void
      */
-    abstract protected function migrateUp();
+    abstract protected function migrateUp() : void;
 
     /**
      * Reverse the migration.
+     *
+     * @return void
      */
-    abstract protected function migrateDown();
+    abstract protected function migrateDown() : void;
 }

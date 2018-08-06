@@ -3,12 +3,14 @@
     "type": "library",
     "description": "Prevent your Laravel database migrations from failing irreversibly by using transactional queries.",
     "keywords": [
-        "Laravel",
+        "laravel",
         "database",
         "transactional",
         "transactions",
         "migrations",
-        "Sebastiaan Luca"
+        "unbreakable",
+        "roll back",
+        "undo"
     ],
     "homepage": "https://www.github.com/sebastiaanluca/laravel-unbreakable-migrations",
     "license": "MIT",
@@ -21,12 +23,14 @@
         }
     ],
     "require": {
-        "laravel/framework": "5.1.*|5.2.*|5.3.*|5.4.*",
-        "php": "^7.0"
+        "php": "^7.2",
+        "illuminate/database": "^5.6",
+        "illuminate/support": "^5.6"
     },
     "require-dev": {
-        "phpunit/phpunit": "~4.0|^5.7.6",
-        "squizlabs/php_codesniffer": "^2.3"
+        "kint-php/kint": "^2.2",
+        "orchestra/testbench": "^3.6",
+        "phpunit/phpunit": "^7.3"
     },
     "autoload": {
         "psr-4": {
@@ -35,20 +39,20 @@
     },
     "autoload-dev": {
         "psr-4": {
-            "SebastiaanLuca\\Migrations\\": "tests"
+            "SebastiaanLuca\\Migrations\\Tests\\": "tests"
         }
     },
     "scripts": {
-        "test": "phpunit",
-        "check-style": "phpcs -p --standard=PSR2 --runtime-set ignore_errors_on_exit 1 --runtime-set ignore_warnings_on_exit 1 src tests",
-        "fix-style": "phpcbf -p --standard=PSR2 --runtime-set ignore_errors_on_exit 1 --runtime-set ignore_warnings_on_exit 1 src tests"
-    },
-    "extra": {
-        "branch-alias": {
-            "dev-develop": "1.0-dev"
-        }
+        "test": "vendor/bin/phpunit"
     },
     "config": {
         "sort-packages": true
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "SebastiaanLuca\\Migrations\\Providers\\UnbreakableMigrationsServiceProvider"
+            ]
+        }
     }
 }
