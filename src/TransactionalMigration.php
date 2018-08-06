@@ -44,7 +44,7 @@ abstract class TransactionalMigration extends Migration
 
             $this->database->commit();
         } catch (Exception $exception) {
-            $this->database->rollback();
+            $this->database->rollBack();
 
             $this->handleException($exception);
         }
