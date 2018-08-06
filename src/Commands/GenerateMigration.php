@@ -43,12 +43,12 @@ class GenerateMigration extends MigrateMakeCommand
      *
      * @return void
      */
-    public function fire() : void
+    public function handle() : void
     {
         if ($module = $this->option('module')) {
             $this->input->setOption('path', 'modules/' . $module . '/database/migrations');
         }
 
-        parent::fire();
+        parent::handle();
     }
 }
