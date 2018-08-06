@@ -8,7 +8,9 @@
         "transactional",
         "transactions",
         "migrations",
-        "unbreakable"
+        "unbreakable",
+        "roll back",
+        "undo"
     ],
     "homepage": "https://www.github.com/sebastiaanluca/laravel-unbreakable-migrations",
     "license": "MIT",
@@ -27,7 +29,6 @@
     },
     "require-dev": {
         "kint-php/kint": "^2.2",
-        "mockery/mockery": "^1.1",
         "orchestra/testbench": "^3.6",
         "phpunit/phpunit": "^7.3"
     },
