@@ -9,9 +9,10 @@ Updates should follow the [Keep a CHANGELOG](http://keepachangelog.com/) princip
 ### Added
 
 - Added generate migration command with module support
-- Added Laravel 5.5 support
-- Added Laravel 5.5 auto-discovery
+- Added Laravel 5.6 support
+- Added Laravel auto-discovery
 
 ### Removed
 
-- Removed support for Laravel 5.1, 5.2, and 5.3
+- Removed support for Laravel 5.5 and lower
+- Removed support for PHP 7.1 and lower
